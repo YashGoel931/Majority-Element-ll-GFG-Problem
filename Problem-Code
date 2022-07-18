@@ -1,0 +1,17 @@
+class Solution {
+    public List<Integer> majorityElement(int[] arr) {
+     HashMap<Integer,Integer> map=new HashMap<>();
+    ArrayList<Integer> al=new ArrayList<>();
+     int count=0,n=arr.length;
+     for(int i=0 ; i<n ; i++){
+        if(map.containsKey(arr[i]))
+        map.put(arr[i],map.get(arr[i])+1);
+        else map.put(arr[i],1);
+     }
+     for(Map.Entry e : map.entrySet()){
+       if((int)e.getValue()>(n/3))
+       al.add((int)e.getKey());
+     }
+    return al;   
+    }
+}
